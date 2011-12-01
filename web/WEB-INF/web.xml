@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+           version="2.5">
+    <context-param>
+        <param-name>fedlet.home</param-name>
+        <param-value>e:/test/other</param-value>
+    </context-param>
+    <filter>
+        <filter-name>openssoFilter</filter-name>
+        <filter-class>com.cfsoft.opensso.OpenSSOFilter</filter-class>
+    </filter>
+
+    <servlet>
+        <servlet-name>ssoLogin</servlet-name>
+        <servlet-class>com.cfsoft.opensso.OpenSSOLogin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ssoLogout</servlet-name>
+        <servlet-class>com.cfsoft.opensso.OpenSSOLogout</servlet-class>
+    </servlet>
+
+    <filter-mapping>
+        <filter-name>openssoFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ssoLogin</servlet-name>
+        <url-pattern>/ssoLogin</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ssoLogout</servlet-name>
+        <url-pattern>/ssoLogout</url-pattern>
+    </servlet-mapping>
+
+</web-app>
